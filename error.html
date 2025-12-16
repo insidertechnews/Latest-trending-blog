@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Error — InsiderTech News</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Screens */
+.loading-screen,
+.error-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.6s ease;
+}
+
+.loading-screen {
+    background: #0f0f0f;
+}
+
+.error-screen {
+    opacity: 0;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255,255,255,0.2);
+    border-top: 6px solid #0077ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Error text */
+.error-code {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.error-message {
+    font-size: 18px;
+    color: #ccc;
+    max-width: 460px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.actions button {
+    padding: 12px 22px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
+.retry-btn {
+    background: #0077ff;
+    color: white;
+}
+.home-btn {
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+}
+
+/* Utilities */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.visible {
+    opacity: 1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADING -->
+<div class="loading-screen" id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading article…</div>
+</div>
+
+<!-- ERROR -->
+<div class="error-screen" id="error">
+    <div class="error-code" id="errorCode">401</div>
+    <div class="error-message" id="errorMessage"></div>
+
+    <div class="actions">
+        <button class="retry-btn" onclick="retry()">Retry</button>
+        <button class="home-btn" onclick="goHome()">Back to Homepage</button>
+    </div>
+</div>
+
+<script>
+/* Error definitions */
+const errors = {
+    401: "Sorry, couldn’t load up the article at the moment. Please try again later.",
+    403: "Access denied. You don’t have permission to view this content.",
+    404: "The article you’re looking for could not be found.",
+    500: "Server error. Something went wrong on our end."
+};
+
+/* Pick error via URL: error.html?code=404 */
+const params = new URLSearchParams(window.location.search);
+const code = params.get("code") || "401";
+
+/* Set error content */
+document.getElementById("errorCode").textContent = `ERROR ${code}`;
+document.getElementById("errorMessage").textContent = errors[code] || errors[401];
+
+/* Show error after loading */
+setTimeout(showError, 4000);
+
+function showError() {
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("error").classList.add("visible");
+}
+
+/* Retry */
+function retry() {
+    document.getElementById("error").classList.remove("visible");
+    document.getElementById("loading").classList.remove("hidden");
+    setTimeout(showError, 4000);
+}
+
+/* Back home */
+function goHome() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

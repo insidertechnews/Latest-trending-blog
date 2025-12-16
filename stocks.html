@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stocks & Equity | InsiderTech News</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #111;
+}
+
+/* HEADER */
+header {
+    background: #111;
+    color: white;
+    padding: 15px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* HAMBURGER */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.hamburger span {
+    background: white;
+    height: 3px;
+    width: 26px;
+    margin: 4px 0;
+}
+
+/* NAV MENU */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #111;
+    width: 100%;
+    flex-direction: column;
+    padding: 15px 0;
+    z-index: 1000;
+}
+.nav-links a {
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 15px;
+}
+.nav-links a:hover {
+    background: #1a1a1a;
+}
+.nav-links.active {
+    display: flex;
+}
+
+/* HERO IMAGE */
+.hero img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+/* ARTICLE */
+.article {
+    background: white;
+    max-width: 920px;
+    margin: -60px auto 40px;
+    padding: 40px 28px;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.article .category {
+    font-weight: bold;
+    color: #0077ff;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.article h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+.article .meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.article p {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 22px;
+}
+
+/* ARTICLE IMAGES */
+.article img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 30px 0 10px;
+}
+.caption {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero img { height: 240px; }
+    .article h1 { font-size: 28px; }
+    .article p { font-size: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">InsiderTech</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="business.html">Business</a>
+        <a href="tech.html">Tech & AI</a>
+        <a href="stocks.html">Stocks & Equity</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="billionaires.html">Billionaires</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80" alt="Global Stock Markets">
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+    <div class="category">STOCKS & EQUITY MARKETS</div>
+    <h1>Global Equity Markets Rally as Earnings Growth and AI Optimism Drive Investor Confidence</h1>
+    <div class="meta">
+        By InsiderTech Markets Desk • December 14, 2025 • Updated 10:15 AM PDT
+    </div>
+
+    <p>
+        Global equity markets surged this quarter as corporations delivered stronger-than-expected earnings,
+        fueled by productivity gains from artificial intelligence and easing inflationary pressures.
+        Analysts say the rally reflects renewed confidence in long-term growth.
+    </p>
+
+    <p>
+        Major indices across the United States, Europe, and Asia posted record or near-record highs,
+        supported by resilient consumer demand and stabilizing interest-rate expectations.
+        Institutional investors increased exposure to technology, industrials, and financials.
+    </p>
+
+    <img src="https://via.placeholder.com/900x500" alt="Global Stock Market Performance">
+    <div class="caption">Placeholder image — global stock indices and equity performance trends</div>
+
+    <p>
+        Technology firms led gains, with AI-driven software and semiconductor companies reporting
+        margin expansion and strong forward guidance. Market strategists note that automation and
+        data-driven decision-making are reshaping corporate profitability.
+    </p>
+
+    <p>
+        Meanwhile, traditional sectors such as manufacturing and energy benefited from supply-chain
+        normalization and infrastructure spending. Value stocks attracted renewed attention as
+        investors sought diversification amid valuation concerns.
+    </p>
+
+    <img src="https://via.placeholder.com/900x500" alt="Institutional Investors">
+    <div class="caption">Placeholder image — institutional investors and capital allocation strategies</div>
+
+    <p>
+        Equity analysts caution that volatility may return as geopolitical risks and monetary policy
+        shifts remain unresolved. However, many believe that balanced portfolios and selective stock
+        picking will define the next phase of market performance.
+    </p>
+
+    <p>
+        As earnings season continues, market participants are closely monitoring guidance for 2026,
+        viewing corporate investment in innovation and efficiency as key indicators of sustained growth.
+    </p>
+</article>
+
+<footer>
+    © 2025 InsiderTech News — Stocks, Equity & Global Markets
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

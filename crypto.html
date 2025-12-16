@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto | InsiderTech News</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #111;
+}
+
+/* HEADER */
+header {
+    background: #111;
+    color: white;
+    padding: 15px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* HAMBURGER */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.hamburger span {
+    background: white;
+    height: 3px;
+    width: 26px;
+    margin: 4px 0;
+}
+
+/* NAV MENU */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #111;
+    width: 100%;
+    flex-direction: column;
+    padding: 15px 0;
+}
+.nav-links a {
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 15px;
+}
+.nav-links a:hover {
+    background: #1a1a1a;
+}
+.nav-links.active {
+    display: flex;
+}
+
+/* HERO IMAGE */
+.hero img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+/* ARTICLE */
+.article {
+    background: white;
+    max-width: 920px;
+    margin: -60px auto 40px;
+    padding: 40px 28px;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.article .category {
+    font-weight: bold;
+    color: #f7931a;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.article h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+.article .meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.article p {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 22px;
+}
+
+/* ARTICLE IMAGES */
+.article img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 30px 0 10px;
+}
+.caption {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero img { height: 240px; }
+    .article h1 { font-size: 28px; }
+    .article p { font-size: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">InsiderTech</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="business.html">Business</a>
+        <a href="tech.html">Tech & AI</a>
+      
+        <a href="crypto.html">Crypto</a>
+        <a href="billionaires.html">Billionaires</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1621768216001-2f2c177b1f98?auto=format&fit=crop&w=1350&q=80" alt="Cryptocurrency Market">
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+    <div class="category">CRYPTOCURRENCY & BLOCKCHAIN</div>
+    <h1>Crypto Markets Enter New Phase as Institutional Capital and Regulation Converge</h1>
+    <div class="meta">
+        By InsiderTech Markets Desk • December 14, 2025 • Updated 11:24 AM PDT
+    </div>
+
+    <p>
+        Cryptocurrency markets are undergoing a structural shift as institutional
+        investors deepen their exposure and regulatory clarity improves across major
+        economies. Analysts say the industry is moving beyond speculative cycles into
+        a more mature phase.
+    </p>
+
+    <p>
+        Bitcoin and Ethereum continue to dominate market capitalization, but capital
+        flows increasingly favor infrastructure projects, tokenized assets, and
+        blockchain-based financial services. Trading volumes suggest growing
+        confidence among long-term holders.
+    </p>
+
+    <img src="https://via.placeholder.com/900x500" alt="Crypto Market Infrastructure">
+    <div class="caption">Placeholder image — blockchain infrastructure and digital asset networks</div>
+
+    <p>
+        Asset managers report rising demand for regulated crypto products, including
+        exchange-traded funds and custody services. These developments are lowering
+        barriers for pension funds and sovereign investors previously sidelined by
+        compliance concerns.
+    </p>
+
+    <p>
+        At the same time, global regulators are advancing frameworks focused on
+        consumer protection, stablecoin oversight, and anti-money-laundering
+        standards. Industry leaders argue that clear rules will strengthen market
+        stability and investor trust.
+    </p>
+
+    <img src="https://via.placeholder.com/900x500" alt="Decentralized Finance">
+    <div class="caption">Placeholder image — decentralized finance platforms and smart contracts</div>
+
+    <p>
+        Decentralized finance continues to evolve, with protocols emphasizing security,
+        transparency, and real-world asset integration. While risks remain, the pace
+        of innovation suggests blockchain technology is becoming embedded within
+        global financial systems.
+    </p>
+
+    <p>
+        As macroeconomic conditions stabilize, many market participants believe crypto
+        assets will play an increasingly important role in diversified portfolios,
+        signaling a turning point for the digital asset economy.
+    </p>
+</article>
+
+<footer>
+    © 2025 InsiderTech News — Cryptocurrency & Digital Assets
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
