@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsiderTech News — Modern News Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f8f8;
+            color: #111;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: #111;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        header .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 15px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: white;
+            border-bottom: 2px solid #ddd;
+        }
+        .hero .image-container {
+            width: 100%;
+        }
+        .hero .image-container img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px 40px;
+            text-align: left;
+        }
+        .hero-content .small-label {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin: 10px 0;
+            color: #000;
+        }
+        .hero-content .exclusive {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        .hero-content .social-icons {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .hero-content .social-icons i {
+            margin: 0 5px;
+            color: #000;
+            font-size: 14px;
+        }
+        .hero-content .byline {
+            font-size: 14px;
+            color: #555;
+            margin-top: 8px;
+        }
+        .hero-content .publish-date {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .hero-content .hero-subtext {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #444;
+            max-width: 780px;
+            margin-bottom: 20px;
+        }
+        .hero-content .read-btn {
+            background: #0077ff;
+            color: white;
+            padding: 14px 22px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* CATEGORY NAV */
+        .categories {
+            background: white;
+            text-align: center;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        .categories a {
+            margin: 0 10px;
+            color: #0077ff;
+            text-decoration: none;
+        }
+
+        /* VIDEO SECTION */
+        .video-sec {
+            background: white;
+            padding: 25px;
+            margin: 25px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .video-sec h2 {
+            margin-bottom: 5px;
+        }
+        .video-date {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .video-sec iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        /* STORIES GRID */
+        .stories {
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .story-card {
+            background: white;
+            padding: 18px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        .story-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .story-card h3 {
+            font-size: 18px;
+        }
+        .read-more {
+            color: #0077ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* SUBSCRIBE */
+        .subscribe {
+            background: white;
+            padding: 40px 20px;
+            margin: 30px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .subscribe input, .subscribe button {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px;
+            margin: 10px auto;
+            display: block;
+        }
+        .subscribe button {
+            background: #0077ff;
+            color: white;
+            border: none;
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: #111;
+                width: 100%;
+                flex-direction: column;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 12px 20px; }
+
+            .hero .image-container img { height: 300px; }
+            .hero-content h1 { font-size: 32px; }
+            .hero-subtext { font-size: 16px; }
+            .video-sec iframe { height: 250px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">InsiderTech News</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="business.html">Business</a>
+        <a href="tech.html">Tech & AI</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="stocks.html">Stocks & Equity</a>
+        <a href="billionaires.html">Billionaires</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</header>
+
+
+<section class="hero">
+     <div class="hero-content">
+        <div class="small-label">QUANTRAL</div>
+        <h1>UNVEILS BREAKTHROUGH PROJECT SET TO TRANSFORM GLOBAL MARKETS</h1>
+        <div class="exclusive">EXCLUSIVE</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i> 5.8k
+            <i class="fab fa-twitter"></i>
+            <i class="fas fa-comment"></i>
+        </div>
+        <div class="byline">By InsiderTech Staff</div>
+        <div class="publish-date">December 14, 2025 • Updated 9:30 AM PDT</div>
+
+    <br>
+    <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantral Project Horizon">
+    </div>
+
+   
+        <p class="hero-subtext">
+            The rising research community Quantral has launched Project Horizon — a powerful 
+            AI-driven transparency and prediction system set to reshape global financial markets 
+            and create safer ground for investors worldwide.
+        </p>
+
+        <a class="read-btn" href="quantral-story.html">Read Full Story →</a>
+    </div>
+</section>
+
+<div class="categories">
+    <a href="business.html">Business</a>
+    <a href="tech.html">Tech & AI</a>
+    <a href="crypto.html">Crypto</a>
+    <a href="stocks.html">Stocks & Equity</a>
+    <a href="billionaires.html">Billionaires</a>
+</div>
+
+<section class="video-sec">
+    <h2>Featured News Video</h2>
+    <div class="video-date">December 14, 2025</div>
+  <strong>  
+    <p> WORLD LEADERS AND PRES. TRMUP REACTS TO THE BETA LAUNCH OF QUANTRAL'S HORIZON FROM THE WHITE HOUSE.</p> </strong>
+    
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1146716370?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="video-output-616F8CC5-3547-4749-8DBE-51B479B03CDB-1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>  
+</section>
+
+<section class="stories">
+    <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI Stocks">
+        <div class="date">December 13, 2025</div>
+        <h3>AI Stocks Surge as Global Markets Stabilize</h3>
+        <p>Tech-driven financial tools continue boosting investor confidence with record gains in major indices.</p>
+        <a class="read-more" href="error.html">Read more →</a>
+    </div>
+
+    <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1621503854044-f0db0e7e3ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Crypto Recovery">
+        <div class="date">December 13, 2025</div>
+        <h3>Crypto Recovering: Analysts Predict New Bull Run</h3>
+        <p>Major whales have started accumulating top assets, fueling optimism across the cryptocurrency sector.</p>
+        <a class="read-more" href="error.html">Read more →</a>
+    </div>
+
+    <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Young Billionaire">
+        <div class="date">December 12, 2025</div>
+        <h3>Inside the Life of Asia’s Youngest Billionaire</h3>
+        <p>His bold investments are redefining the tech landscape across emerging markets and beyond.</p>
+        <a class="read-more" href="error.html">Read more →</a>
+    </div>
+
+    <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Market Stability">
+        <div class="date">December 12, 2025</div>
+        <h3>Global Markets Show Signs of Long-Term Stability</h3>
+        <p>New AI-powered tools like Project Horizon are reducing volatility and restoring investor trust.</p>
+        <a class="read-more" href="error.html">Read more →</a>
+    </div>
+
+    <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1518186289538-1a15b4e9e9e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantum Tech">
+        <div class="date">December 11, 2025</div>
+        <h3>Quantum Tech Breakthroughs Fuel Investment Boom</h3>
+        <p>Startups leveraging quantum computing are attracting billions in venture capital funding.</p>
+        <a class="read-more" href="error.html">Read more →</a>
+    </div>
+
+    <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1631603090977-280b7c4e76be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equity Rise">
+        <div class="date">December 11, 2025</div>
+        <h3>Equity Investments on the Rise in 2025</h3>
+        <p>Retail and institutional investors flock to stable equities amid ongoing market recovery.</p>
+        <a class="read-more" href="error.html">Read more →</a>
+    </div>
+</section>
+
+<section class="subscribe">
+    <h2>Join Our Newsletter</h2>
+    <p>Get breaking news and exclusive insights delivered straight to your inbox daily.</p>
+    <input type="text" placeholder="Your full name">
+    <input type="email" placeholder="Your email address">
+    <button>Subscribe Now</button>
+</section>
+
+<footer>
+    © 2025 InsiderTech News — All Rights Reserved
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>

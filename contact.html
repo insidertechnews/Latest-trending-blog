@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - InsiderTech News</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f8f8;
+    color: #111;
+}
+
+/* HEADER */
+header {
+    background: #111;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: relative;
+}
+header .logo { font-size: 22px; font-weight: bold; }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { color: white; text-decoration: none; margin: 0 12px; font-size: 15px; }
+.hamburger { display: none; flex-direction: column; cursor: pointer; }
+.hamburger span { width: 25px; height: 3px; background: white; margin: 4px 0; transition: 0.3s; }
+
+/* HERO */
+.hero img { width: 100%; height: 300px; object-fit: cover; display: block; }
+
+/* CONTACT FORM */
+.contact-section {
+    background: white;
+    max-width: 700px;
+    margin: -60px auto 60px;
+    padding: 40px 30px;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    text-align: left;
+}
+.contact-section h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.contact-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.contact-section form input,
+.contact-section form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+.contact-section form button {
+    background: #0077ff;
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+.contact-section form button:hover { background: #005fcc; }
+
+/* FOOTER */
+footer { background: #000; color: white; text-align: center; padding: 30px; }
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero img { height: 200px; }
+    .hamburger { display: flex; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #111; }
+    .nav-links.active { display: flex; }
+    .nav-links a { padding: 12px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">InsiderTech</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="business.html">Business</a>
+        <a href="tech-ai.html">Tech & AI</a>
+        <a href="stocks.html">Stocks & Equity</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="billionaires.html">Billionaires</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1350&q=80" alt="Contact Us">
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="contact-section">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Whether you have a question, suggestion, or want to reach out for media inquiries, please fill out the form below and we’ll get back to you promptly.</p>
+
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2025 InsiderTech News — All Rights Reserved
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

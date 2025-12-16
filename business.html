@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business | InsiderTech News</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #111;
+}
+
+/* HEADER */
+header {
+    background: #111;
+    color: white;
+    padding: 15px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* HAMBURGER */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.hamburger span {
+    background: white;
+    height: 3px;
+    width: 26px;
+    margin: 4px 0;
+}
+
+/* NAV MENU */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #111;
+    width: 100%;
+    flex-direction: column;
+    padding: 15px 0;
+}
+.nav-links a {
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 15px;
+}
+.nav-links a:hover {
+    background: #1a1a1a;
+}
+.nav-links.active {
+    display: flex;
+}
+
+/* HERO IMAGE */
+.hero img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+/* ARTICLE */
+.article {
+    background: white;
+    max-width: 920px;
+    margin: -60px auto 40px;
+    padding: 40px 28px;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.article .category {
+    font-weight: bold;
+    color: #0077ff;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.article h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+.article .meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.article p {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 22px;
+}
+
+/* ARTICLE IMAGES */
+.article img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 30px 0 10px;
+}
+.caption {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero img { height: 240px; }
+    .article h1 { font-size: 28px; }
+    .article p { font-size: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">InsiderTech</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="business.html">Business</a>
+        <a href="tech.html">AI & Tech</a>
+      
+        <a href="crypto.html">Crypto</a>
+        <a href="billionaires.html">Billionaires</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80">
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+    <div class="category">BUSINESS</div>
+    <h1>Global Corporations Pivot Toward AI-Led Efficiency as Profits Reach Historic Highs</h1>
+    <div class="meta">
+        By InsiderTech Staff • December 14, 2025 • Updated 10:41 AM PDT
+    </div>
+
+    <p>
+        Corporate earnings across major economies surged in the fourth quarter of 2025,
+        fueled by aggressive adoption of artificial intelligence, workforce automation,
+        and a renewed focus on operational efficiency. Analysts describe the shift as a
+        structural transformation rather than a cyclical rebound.
+    </p>
+
+    <p>
+        Executives at multinational firms report that AI-driven decision-making tools
+        have reduced costs, optimized supply chains, and accelerated product development.
+        While revenue growth remains uneven across sectors, margins have expanded sharply.
+    </p>
+
+    <img src="https://via.placeholder.com/900x500" alt="Placeholder Image">
+    <div class="caption">Placeholder image — enterprise operations and automation</div>
+
+    <p>
+        In boardrooms from New York to Singapore, leadership teams are prioritizing
+        long-term resilience over rapid expansion. Capital expenditure is increasingly
+        directed toward data centers, machine learning platforms, and cybersecurity
+        infrastructure.
+    </p>
+
+    <p>
+        Private equity firms and institutional investors have followed suit, deploying
+        record levels of capital into AI infrastructure projects. According to industry
+        data, investment in enterprise AI solutions grew by more than 40% year-over-year.
+    </p>
+
+    <img src="https://via.placeholder.com/900x500" alt="Placeholder Image">
+    <div class="caption">Placeholder image — corporate strategy and financial analysis</div>
+
+    <p>
+        Despite the optimism, economists caution that the benefits of AI adoption may
+        not be evenly distributed. Smaller firms face rising barriers to entry, while
+        labor markets continue to adjust to shifting skill demands.
+    </p>
+
+    <p>
+        Still, market sentiment remains largely positive. With inflation stabilizing
+        and interest rates showing signs of plateauing, executives believe the current
+        environment offers a rare opportunity to reshape global business models for
+        the decade ahead.
+    </p>
+</article>
+
+<footer>
+    © 2025 InsiderTech News — Business & Global Markets
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
