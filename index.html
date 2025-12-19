@@ -13,6 +13,21 @@
             color: #111;
         }
 
+        /* TOP BAR */
+        .top-bar {
+            background: #f0f0f0;
+            padding: 8px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #555;
+        }
+        .top-bar a {
+            color: #0077ff;
+            text-decoration: none;
+        }
+
         /* NAVIGATION */
         header {
             background: #111;
@@ -36,6 +51,10 @@
             text-decoration: none;
             margin: 0 12px;
             font-size: 15px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #0077ff;
         }
 
         /* Hamburger Menu */
@@ -52,17 +71,44 @@
             transition: 0.3s;
         }
 
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
         /* HERO SECTION */
         .hero {
             background: white;
             border-bottom: 2px solid #ddd;
+            animation: fadeIn 1.5s;
         }
         .hero .image-container {
-            width: 100%;
-        }
-        .hero .image-container img {
+            position: relative;
+            overflow: hidden;
             width: 100%;
             height: 520px;
+        }
+        .hero .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .hero .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        .hero .slide img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
         .hero-content {
@@ -70,6 +116,7 @@
             margin: 0 auto;
             padding: 30px 20px 40px;
             text-align: left;
+            animation: slideInLeft 1s ease-out;
         }
         .hero-content .small-label {
             font-size: 16px;
@@ -128,6 +175,22 @@
             font-size: 16px;
             border-radius: 4px;
             display: inline-block;
+            transition: background 0.3s;
+        }
+        .hero-content .read-btn:hover {
+            background: #0055cc;
+        }
+        .hero-content .share-options {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .hero-content .share-options i {
+            margin-right: 5px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .hero-content .share-options i:hover {
+            color: #0077ff;
         }
 
         /* CATEGORY NAV */
@@ -141,6 +204,10 @@
             margin: 0 10px;
             color: #0077ff;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+        .categories a:hover {
+            color: #ff0000;
         }
 
         /* VIDEO SECTION */
@@ -150,6 +217,7 @@
             margin: 25px;
             border: 1px solid #ddd;
             border-radius: 6px;
+            animation: fadeIn 1.5s;
         }
         .video-sec h2 {
             margin-bottom: 5px;
@@ -166,9 +234,16 @@
             border: none;
         }
 
-        /* STORIES GRID */
-        .stories {
+        /* MAIN CONTENT WITH SIDEBAR */
+        .main-content {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 25px;
+            gap: 25px;
+        }
+        .stories {
+            flex: 3;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
@@ -178,6 +253,13 @@
             padding: 18px;
             border-radius: 6px;
             border: 1px solid #ddd;
+            transition: box-shadow 0.3s, transform 0.3s;
+            opacity: 0;
+            animation: slideUp 0.5s forwards;
+        }
+        .story-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
         }
         .story-card img {
             width: 100%;
@@ -192,6 +274,89 @@
             color: #0077ff;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+        .read-more:hover {
+            color: #0055cc;
+        }
+        .stories .story-card:nth-child(1) { animation-delay: 0.1s; }
+        .stories .story-card:nth-child(2) { animation-delay: 0.2s; }
+        .stories .story-card:nth-child(3) { animation-delay: 0.3s; }
+        .stories .story-card:nth-child(4) { animation-delay: 0.4s; }
+        .stories .story-card:nth-child(5) { animation-delay: 0.5s; }
+        .stories .story-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* SIDEBAR */
+        .sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .sidebar-section {
+            background: white;
+            padding: 18px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            animation: fadeIn 1s;
+        }
+        .sidebar-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-section li {
+            margin-bottom: 10px;
+        }
+        .sidebar-section a {
+            color: #0077ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .sidebar-section a:hover {
+            color: #ff0000;
+        }
+        .ad-placeholder {
+            background: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* TRENDING SECTION */
+        .trending {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            animation: fadeIn 1.5s;
+        }
+        .trending h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .trending ul {
+            list-style: none;
+            padding: 0;
+        }
+        .trending li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .trending a {
+            color: #111;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        .trending a:hover {
+            text-decoration: underline;
         }
 
         /* SUBSCRIBE */
@@ -202,6 +367,7 @@
             border-radius: 6px;
             border: 1px solid #ddd;
             text-align: center;
+            animation: slideUp 1s;
         }
         .subscribe input, .subscribe button {
             width: 100%;
@@ -215,6 +381,10 @@
             color: white;
             border: none;
             font-size: 16px;
+            transition: background 0.3s;
+        }
+        .subscribe button:hover {
+            background: #0055cc;
         }
 
         /* FOOTER */
@@ -223,6 +393,15 @@
             color: white;
             text-align: center;
             padding: 30px;
+        }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #0077ff;
         }
 
         /* MOBILE */
@@ -240,15 +419,26 @@
             .nav-links.active { display: flex; }
             .nav-links a { padding: 12px 20px; }
 
-            .hero .image-container img { height: 300px; }
+            .hero .image-container { height: 300px; }
             .hero-content h1 { font-size: 32px; }
             .hero-subtext { font-size: 16px; }
             .video-sec iframe { height: 250px; }
+            .main-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
+
+<div class="top-bar">
+    <span>US Edition</span>
+    <span>English</span>
+    <span>Thu, Dec 18, 2025 | Updated 06:51 PM IST</span>
+    <a href="#">Weather</a>
+    <a href="#">Change City</a>
+</div>
 
 <header>
     <div class="logo">InsiderTech News</div>
@@ -282,7 +472,11 @@
 
     <br>
     <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantral Project Horizon">
+        <div class="slides" id="heroSlides">
+            <div class="slide"><img src="https://i.ibb.co/M55tCtYz/photo-output.jpg" alt="Quantral Launch 1"></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantral Launch 2"></div>
+            <div class="slide"><img src="https://i.ibb.co/CpZpdwtD/photo-output.jpg" alt="Quantral Launch 4"></div>
+        </div>
     </div>
 
    
@@ -293,6 +487,9 @@
         </p>
 
         <a class="read-btn" href="quantral-story.html">Read Full Story →</a>
+        <div class="share-options">
+            Share: <i class="fab fa-facebook-f"></i> <i class="fab fa-twitter"></i> <i class="fab fa-linkedin-in"></i> <i class="fas fa-envelope"></i>
+        </div>
     </div>
 </section>
 
@@ -313,54 +510,97 @@
 <div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1146716370?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="video-output-616F8CC5-3547-4749-8DBE-51B479B03CDB-1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>  
 </section>
 
-<section class="stories">
-    <div class="story-card">
-        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI Stocks">
-        <div class="date">December 13, 2025</div>
-        <h3>AI Stocks Surge as Global Markets Stabilize</h3>
-        <p>Tech-driven financial tools continue boosting investor confidence with record gains in major indices.</p>
-        <a class="read-more" href="error.html">Read more →</a>
-    </div>
+<div class="main-content">
+    <section class="stories">
+        <div class="story-card">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI Stocks">
+            <div class="date">December 13, 2025</div>
+            <h3>AI Stocks Surge as Global Markets Stabilize</h3>
+            <p>Tech-driven financial tools continue boosting investor confidence with record gains in major indices.</p>
+            <a class="read-more" href="error.html">Read more →</a>
+        </div>
 
-    <div class="story-card">
-        <img src="https://images.unsplash.com/photo-1621503854044-f0db0e7e3ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Crypto Recovery">
-        <div class="date">December 13, 2025</div>
-        <h3>Crypto Recovering: Analysts Predict New Bull Run</h3>
-        <p>Major whales have started accumulating top assets, fueling optimism across the cryptocurrency sector.</p>
-        <a class="read-more" href="error.html">Read more →</a>
-    </div>
+        <div class="story-card">
+            <img src="https://images.unsplash.com/photo-1621503854044-f0db0e7e3ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Crypto Recovery">
+            <div class="date">December 13, 2025</div>
+            <h3>Crypto Recovering: Analysts Predict New Bull Run</h3>
+            <p>Major whales have started accumulating top assets, fueling optimism across the cryptocurrency sector.</p>
+            <a class="read-more" href="error.html">Read more →</a>
+        </div>
 
-    <div class="story-card">
-        <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Young Billionaire">
-        <div class="date">December 12, 2025</div>
-        <h3>Inside the Life of Asia’s Youngest Billionaire</h3>
-        <p>His bold investments are redefining the tech landscape across emerging markets and beyond.</p>
-        <a class="read-more" href="error.html">Read more →</a>
-    </div>
+        <div class="story-card">
+            <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Young Billionaire">
+            <div class="date">December 12, 2025</div>
+            <h3>Inside the Life of Asia’s Youngest Billionaire</h3>
+            <p>His bold investments are redefining the tech landscape across emerging markets and beyond.</p>
+            <a class="read-more" href="error.html">Read more →</a>
+        </div>
 
-    <div class="story-card">
-        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Market Stability">
-        <div class="date">December 12, 2025</div>
-        <h3>Global Markets Show Signs of Long-Term Stability</h3>
-        <p>New AI-powered tools like Project Horizon are reducing volatility and restoring investor trust.</p>
-        <a class="read-more" href="error.html">Read more →</a>
-    </div>
+        <div class="story-card">
+            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Market Stability">
+            <div class="date">December 12, 2025</div>
+            <h3>Global Markets Show Signs of Long-Term Stability</h3>
+            <p>New AI-powered tools like Project Horizon are reducing volatility and restoring investor trust.</p>
+            <a class="read-more" href="error.html">Read more →</a>
+        </div>
 
-    <div class="story-card">
-        <img src="https://images.unsplash.com/photo-1518186289538-1a15b4e9e9e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantum Tech">
-        <div class="date">December 11, 2025</div>
-        <h3>Quantum Tech Breakthroughs Fuel Investment Boom</h3>
-        <p>Startups leveraging quantum computing are attracting billions in venture capital funding.</p>
-        <a class="read-more" href="error.html">Read more →</a>
-    </div>
+        <div class="story-card">
+            <img src="https://images.unsplash.com/photo-1518186289538-1a15b4e9e9e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quantum Tech">
+            <div class="date">December 11, 2025</div>
+            <h3>Quantum Tech Breakthroughs Fuel Investment Boom</h3>
+            <p>Startups leveraging quantum computing are attracting billions in venture capital funding.</p>
+            <a class="read-more" href="error.html">Read more →</a>
+        </div>
 
-    <div class="story-card">
-        <img src="https://images.unsplash.com/photo-1631603090977-280b7c4e76be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equity Rise">
-        <div class="date">December 11, 2025</div>
-        <h3>Equity Investments on the Rise in 2025</h3>
-        <p>Retail and institutional investors flock to stable equities amid ongoing market recovery.</p>
-        <a class="read-more" href="error.html">Read more →</a>
-    </div>
+        <div class="story-card">
+            <img src="https://images.unsplash.com/photo-1631603090977-280b7c4e76be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equity Rise">
+            <div class="date">December 11, 2025</div>
+            <h3>Equity Investments on the Rise in 2025</h3>
+            <p>Retail and institutional investors flock to stable equities amid ongoing market recovery.</p>
+            <a class="read-more" href="error.html">Read more →</a>
+        </div>
+    </section>
+
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <h3>Hot Picks</h3>
+            <ul>
+                <li><a href="#">Tesla CEO Elon Musk predicts a future without poverty</a></li>
+                <li><a href="#">AI Stocks Surge as Global Markets Stabilize</a></li>
+                <li><a href="#">Crypto Recovering: Analysts Predict New Bull Run</a></li>
+                <li><a href="#">Quantum Tech Breakthroughs Fuel Investment Boom</a></li>
+            </ul>
+        </div>
+
+        <div class="ad-placeholder">
+            Advertisement
+        </div>
+
+        <div class="sidebar-section">
+            <h3>In Focus</h3>
+            <ul>
+                <li><a href="#">Global Markets Show Signs of Long-Term Stability</a></li>
+                <li><a href="#">Equity Investments on the Rise in 2025</a></li>
+                <li><a href="#">Inside the Life of Asia’s Youngest Billionaire</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+<section class="trending">
+    <h2>Trending News</h2>
+    <ul>
+        <li><a href="#">Sam Altman says industry is wrong on OpenAI's competition</a></li>
+        <li><a href="#">Nvidia CEO Jensen Huang: I am not ambitious</a></li>
+        <li><a href="#">Chibi-style 3D selfie diorama: 5 prompts you can try</a></li>
+        <li><a href="#">Trump's gold card finds no takers</a></li>
+        <li><a href="#">UAE weather alert: Heavy rain, thunder and hail</a></li>
+        <li><a href="#">Kyrie Irving takes Christmas to another level</a></li>
+        <li><a href="#">SSC CGL Tier 1 Cut Off released</a></li>
+        <li><a href="#">Gisele Bündchen turns heads in Florida</a></li>
+        <li><a href="#">NYT Connections Hints and Answers</a></li>
+        <li><a href="#">Elon Musk warns US against scrapping H-1B</a></li>
+    </ul>
 </section>
 
 <section class="subscribe">
@@ -373,12 +613,30 @@
 
 <footer>
     © 2025 InsiderTech News — All Rights Reserved
+    <br>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Sitemap</a>
+    <a href="#">Contact Us</a>
 </footer>
 
 <script>
     function toggleMenu() {
         document.getElementById("navLinks").classList.toggle("active");
     }
+
+    let currentHeroSlide = 0;
+    const heroSlides = document.getElementById('heroSlides');
+    const totalHeroSlides = heroSlides ? heroSlides.children.length : 0;
+
+    function nextHeroSlide() {
+        if (totalHeroSlides > 0) {
+            currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+            heroSlides.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+        }
+    }
+
+    setInterval(nextHeroSlide, 3000);
 </script>
 
 </body>

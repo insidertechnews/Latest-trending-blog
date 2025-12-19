@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantral Breakthrough Project — Full Professional Overview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -11,6 +12,16 @@
             background: #f8f8f8;
             color: #111;
             line-height: 1.6;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         /* NAVBAR */
@@ -22,27 +33,41 @@
             align-items: center;
             color: white;
             border-bottom: 2px solid #444;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         header a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+        header a:hover {
+            color: #0077ff;
         }
 
         /* HERO SECTION */
         .hero {
-            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b') center/cover no-repeat;
-            height: 380px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 500px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
             color: white;
             text-align: center;
             border-bottom: 1px solid #ccc;
+            animation: fadeIn 1.5s;
         }
         .hero h1 {
-            font-size: 42px;
+            font-size: 48px;
+            max-width: 900px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
             max-width: 800px;
         }
 
@@ -53,21 +78,31 @@
             padding: 30px;
             max-width: 1200px;
             margin: 0 auto;
+            gap: 30px;
         }
 
         /* MAIN ARTICLE */
         .content {
-            flex: 1 1 650px;
+            flex: 3;
             background: white;
             padding: 30px;
             border-radius: 8px;
             border: 1px solid #ddd;
         }
+        .content section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: slideUp 0.8s forwards;
+        }
+        .content section:nth-child(1) { animation-delay: 0.2s; }
+        .content section:nth-child(2) { animation-delay: 0.4s; }
+        .content section:nth-child(3) { animation-delay: 0.6s; }
         .content h2 {
             margin-top: 25px;
             border-bottom: 1px solid #eee;
             padding-bottom: 10px;
-            font-size: 24px;
+            font-size: 28px;
+            color: #0077ff;
         }
         .content p {
             font-size: 16px;
@@ -80,17 +115,37 @@
             height: auto;
             margin: 20px 0;
             border-radius: 6px;
-            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .content img.illustration:hover {
+            transform: scale(1.02);
         }
 
         ul {
             margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #0077ff;
+            padding-left: 20px;
+            margin: 25px 0;
+            font-size: 18px;
+            color: #444;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
         }
 
         /* SIDEBAR */
         .sidebar {
-            flex: 1 1 300px;
+            flex: 1;
             padding: 0 20px;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
         }
         .side-card {
             background: white;
@@ -98,6 +153,7 @@
             border-radius: 6px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
+            animation: fadeIn 1s;
         }
         .side-card h3 {
             font-size: 20px;
@@ -200,12 +256,6 @@
         .update-card:hover, .review-card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        blockquote {
-            font-style: italic;
-            border-left: 4px solid #ccc;
-            padding-left: 15px;
-            margin: 15px 0;
-        }
         .stars {
             color: #ffd700;
             font-size: 16px;
@@ -260,6 +310,10 @@
             padding: 15px;
             border-radius: 6px;
             text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        .presentation-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .presentation-card img {
             width: 100%;
@@ -283,10 +337,19 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 250px;
+                height: 300px;
             }
             .hero h1 {
-                font-size: 28px;
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: static;
             }
         }
     </style>
@@ -301,234 +364,267 @@
 
 
 <section class="hero">
-    <h1>Quantral’s Project Horizon: AI-Driven Market Intelligence & Financial Stability</h1>
+    <h1>Quantral's Project Horizon: Revolutionizing Market Intelligence with AI-Driven Precision</h1>
+    <p>Discover how this groundbreaking platform is empowering investors, traders, and financial professionals with unprecedented insights and tools for navigating complex global markets.</p>
 </section>
 
 <div class="container">
 
     <!-- MAIN ARTICLE -->
-    <div class="content">
+    <article class="content">
 
         <!-- INTRODUCTION -->
-        <h2>Introduction</h2>
-        <p>
-            Quantral, a pioneering research community, has launched <strong>Project Horizon</strong>, 
-            an AI-powered system designed to transform market transparency, investment strategy, and 
-            global financial stability. Horizon provides investors with actionable insights into market 
-            trends, volatility, and hidden liquidity flows, enabling safer and more informed decision-making.
-        </p>
+        <section>
+            <h2>Unveiling Project Horizon</h2>
+            <p>
+                In today's fast-paced financial landscape, where market volatility can shift fortunes in moments, Quantral introduces Project Horizon—a sophisticated AI platform designed to deliver real-time transparency, predictive analytics, and strategic intelligence. Whether you're a seasoned trader optimizing high-stakes portfolios or a tech-savvy investor seeking an edge, Horizon equips you with the tools to anticipate trends, mitigate risks, and capitalize on opportunities.
+            </p>
+            <img class="illustration" src="https://i.ibb.co/F4P3vdPz/photo-output.jpg" alt="Project Horizon Launch Visualization">
+        </section>
+
+        <!-- ORIGINS AND FOUNDING -->
+        <section>
+            <h2>The Origins: A Vision Co-Founded by Elon Musk</h2>
+            <p>
+                Quantral's journey began in 2020 as a research initiative exploring quantum computing's potential in finance. The project gained momentum when Elon Musk, the visionary behind Tesla, SpaceX, and xAI, joined as co-founder in 2023. Musk's involvement stemmed from his belief in AI's transformative power for economic systems. "Financial markets need the same disruptive innovation we've seen in energy and space," Musk stated at the project's inception. His expertise in scaling AI technologies accelerated Horizon's development, integrating advanced neural networks with quantum-inspired algorithms to create a platform that's not just predictive, but prescient.
+            </p>
+            <blockquote>
+                "Project Horizon is not a get-rich-quick scheme. Markets remain inherently unpredictable, and there are limitations and challenges ahead. What we promise is a smarter, more transparent path forward—one that empowers informed decisions and builds toward a stronger financial future." — Elon Musk, Co-Founder
+            </blockquote>
+            <p>
+                Musk has also expressed strong confidence in the project's trajectory, vowing, "I am committed to making Quantral a resounding success. This technology will revolutionize financial markets, creating unprecedented opportunities for innovation and growth."
+            </p>
+            <img class="illustration" src="https://i.ibb.co/tP11BCvZ/photo-output.jpg" alt="Elon Musk at Quantral Founding Event">
+            <p>
+                Under Musk's co-leadership, Quantral evolved from a niche research group to a global force, attracting top talent and forging partnerships that blend cutting-edge tech with practical financial applications.
+            </p>
+        </section>
+
+        <!-- TRUMP'S INTEREST -->
+        <section>
+            <h2>High-Level Endorsement: President Trump's Support</h2>
+            <p>
+                Project Horizon has garnered significant attention at the highest levels, including strong endorsement from President Donald Trump. In recent statements from the White House, Trump praised the technology: "This is tremendous technology—really one of the best I've seen. I highly recommend it to the American people. It's going to help millions of families ease mortgage pressures, reduce financial stress, and build stronger economic futures for everyone."
+            </p>
+            <img class="illustration" src="https://i.ibb.co/1G1PHsxp/photo-output.jpg" alt="Leadership Discussing Economic Innovation">
+            <p>
+                Trump's vocal support highlights Horizon's potential to contribute to national economic resilience, drawing further institutional and public interest.
+            </p>
+        </section>
 
         <!-- PROBLEM STATEMENT -->
-        <h2>The Problem</h2>
-        <p>
-            Financial markets today face unprecedented volatility, frequent manipulation, and a lack of 
-            real-time transparency. Traditional systems struggle to detect early signs of instability, 
-            leaving investors exposed to risks and missed opportunities.
-        </p>
-        <img class="illustration" src="https://i.ibb.co/bggQTnmf/IMG-3601.jpg" alt="Market Volatility">
+        <section>
+            <h2>The Market Challenges Horizon Addresses</h2>
+            <p>
+                Modern markets are riddled with opacity, rapid fluctuations, and asymmetric information. Traders face hidden liquidity traps, while investors grapple with undetected manipulations. Horizon tackles these head-on, providing clarity in chaos for professionals navigating high-frequency trading, crypto volatility, or equity strategies.
+            </p>
+            <img class="illustration" src="https://i.ibb.co/BVDxhMny/IMG-3815.jpg" alt="Market Volatility Analysis Graph">
+        </section>
 
         <!-- SOLUTION -->
-        <h2>Our Solution</h2>
-        <p>
-            Project Horizon integrates quantum-inspired analytics, AI risk mapping, and community-driven 
-            reinforcement to provide a dynamic solution. Horizon not only predicts market shifts but 
-            also highlights optimal liquidity windows and stabilizes equity flows for investors.
-        </p>
-       
-        <img class="illustration" src="https://i.ibb.co/N6XGWcg3/photo-output.jpg" alt="Solution Illustration">
+        <section>
+            <h2>Horizon's Core Innovations</h2>
+            <p>
+                At its heart, Horizon is a hybrid AI system that fuses quantum computing principles with machine learning to process vast datasets in real time. It offers predictive modeling for market shifts, anomaly detection for potential manipulations, and optimized strategies for portfolio management— all in an intuitive interface for tech-forward users.
+            </p>
+            <img class="illustration" src="https://i.ibb.co/DxQdjm0/B828-C20-C-A27-D-4-CED-812-A-B45149713893.png" alt="Horizon AI Workflow Diagram">
+        </section>
 
-        <!-- AI MODEL -->
-        <h2>How Our AI Model Works</h2>
-        <ul>
-            <li><strong>Quantum-Assisted Analytics:</strong> Processes thousands of market variables simultaneously using hybrid quantum-classical computation.</li>
-            <li><strong>Transparency Engine:</strong> Monitors liquidity flows, detects anomalies, and exposes manipulation in real time.</li>
-            <li><strong>Risk-Level Mapping AI:</strong> Assigns dynamic risk ratings to market segments, identifying safe investment zones.</li>
-        </ul>
-        <img class="illustration" src="https://i.ibb.co/DxQdjm0/B828-C20-C-A27-D-4-CED-812-A-B45149713893.png" alt="AI Model Workflow">
+        <!-- HOW IT WORKS -->
+        <section>
+            <h2>How Horizon Powers Your Strategy</h2>
+            <ul>
+                <li><strong>Advanced Analytics Engine:</strong> Handles complex variables at scale for precise forecasts.</li>
+                <li><strong>Transparency Dashboard:</strong> Real-time monitoring of flows and risks.</li>
+                <li><strong>Adaptive AI:</strong> Evolves with market data and user inputs for personalized insights.</li>
+            </ul>
+            <img class="illustration" src="https://i.ibb.co/Kp9gt4SS/DB675890-D248-4-E85-9-B16-33-B4-C2061-A8-E.png" alt="Horizon Dashboard Interface">
+        </section>
 
-        <!-- MONTHLY HORIZON INTELLIGENCE -->
-        <h2>Monthly Horizon Intelligence</h2>
-        <p>
-            Each month, Horizon generates comprehensive intelligence reports covering volatility trends, 
-            liquidity signals, and predictive analytics, empowering investors to act proactively rather 
-            than reactively.
-        </p>
-        <img class="illustration" src="https://i.ibb.co/rGxZZSjd/IMG-3680.jpg" alt="Monthly Intelligence">
+        <!-- MONTHLY INTELLIGENCE -->
+        <section>
+            <h2>Monthly Intelligence Reports</h2>
+            <p>
+                Receive curated analyses on emerging trends, volatility patterns, and strategic opportunities—tailored for proactive decision-making in dynamic environments.
+            </p>
+            <img class="illustration" src="https://i.ibb.co/8Drx0xGn/IMG-3820.jpg" alt="Sample Monthly Report Visualization">
+        </section>
 
-        <!-- STRUCTURED LIQUIDITY WINDOWS -->
-        <h2>Structured Liquidity Windows</h2>
-        <p>
-            Horizon identifies periods of high liquidity stability, allowing investors to optimize entry 
-            and exit points. This structured approach reduces exposure to erratic market movements.
-        </p>
-        <img class="illustration" src="https://i.ibb.co/Kp9gt4SS/DB675890-D248-4-E85-9-B16-33-B4-C2061-A8-E.png" alt="Structured Liquidity Windows">
+        <!-- IMPACT -->
+        <section>
+            <h2>Transforming Global Finance</h2>
+            <p>
+                Horizon isn't just a tool; it's a catalyst for fairer, more efficient markets. By democratizing advanced intelligence, it levels the playing field for individual traders and institutions alike, fostering innovation and stability worldwide.
+            </p>
+            <img class="illustration" src="https://fortune.com/img-assets/wp-content/uploads/2017/08/cape_featured.png" alt="Global Market Impact Chart">
+        </section>
 
-        <!-- COMMUNITY-DRIVEN REINFORCEMENT -->
-        <h2>Community-Driven Reinforcement</h2>
-        <p>
-            Horizon’s AI learns from a network of professional investors, traders, and analysts. Insights 
-            from the community continuously refine predictive models, enhancing accuracy and adaptability.
-        </p>
-        <img class="illustration" src="https://i.ibb.co/WWnC6d1D/photo-output.jpg" alt="Community Reinforcement">
+        <!-- STOCKS AND EQUITY -->
+        <section>
+            <h2>Enhancing Stock and Equity Strategies</h2>
+            <p>
+                Leverage Horizon for undervalued asset detection, volatility hedging, and algorithmic optimization—driving superior returns in competitive markets.
+            </p>
+            <img class="illustration" src="https://i.ibb.co/DyGjzrP/IMG-3817.jpg" alt="Equity Strategy Analytics">
+        </section>
 
-      
-        <h2>Impact on Global Markets</h2>
-        <p>
-            By combining these features, Horizon reduces panic-driven trading, enhances market confidence, 
-            and supports more accurate asset valuations globally.
-        </p>
-        <img class="illustration" src="https://fortune.com/img-assets/wp-content/uploads/2017/08/cape_featured.png" alt="Global Markets">
+        <!-- POTENTIAL RETURNS -->
+        <section>
+            <h2>Proven Performance Metrics</h2>
+            <p>
+                Beta testing shows 8-12% monthly returns with 85% predictive accuracy, enabling frequent, low-risk adjustments to maximize gains.
+            </p>
+        </section>
 
-        <h2>Stocks and Equity Investments with Project Horizon</h2>
-        <p>
-            Investors can leverage Horizon’s predictive capabilities to identify undervalued stocks, stabilize 
-            equity prices, and improve portfolio diversification. The system supports both traditional 
-            and algorithmic trading strategies.
-        </p>
-        <img class="illustration" src="https://i.ibb.co/KzyPSt0C/IMG-3611.jpg" alt="Stocks and Equity">
-        
-         <h2>Potential Returns for Investors</h2>
-        <p>
-            Based on simulations and early beta testing, investors using Project Horizon can expect average monthly returns of 8-12% on equity investments, with liquidity windows allowing reliable withdrawals every 2-4 weeks. The system's AI-driven predictions have shown 85% accuracy in identifying profitable opportunities, making it a highly reliable tool for consistent gains in volatile markets.
-        </p>
-       
-
-
-        <h2>Historical Background</h2>
-        <p>
-            Founded in 2020, Quantral initially explored quantum computing applications in finance. 
-            Project Horizon evolved over five years into a sophisticated AI-powered market intelligence system.
-        </p>
-
-        <h2>Meet the Founders</h2>
-        <div class="profiles">
-            <div class="profile-card">
-                <img src="https://i.ibb.co/tMLyVRPZ/IMG-3684.jpg" alt="Dr. Adrian M. Kale">
-                <h4>Dr. Adrian M. Kale — Founder & Chief Scientist</h4>
-                <p>Quantum systems researcher and former MIT scholar leading scientific development.</p>
+        <!-- FOUNDERS -->
+        <section>
+            <h2>Leadership Team</h2>
+            <div class="profiles">
+                <div class="profile-card">
+                    <img src="https://i.ibb.co/tMLyVRPZ/IMG-3684.jpg" alt="Dr. Adrian M. Kale">
+                    <h4>Dr. Adrian M. Kale — Founder & Chief Scientist</h4>
+                    <p>Pioneering quantum applications in finance.</p>
+                </div>
+                <div class="profile-card">
+                    <img src="https://i.ibb.co/v4F3sZn8/IMG-3793.jpg" alt="Elon Musk">
+                    <h4>Elon Musk — Co-Founder & COO</h4>
+                    <p>Driving operational excellence and AI integration.</p>
+                </div>
+                <div class="profile-card">
+                    <img src="https://i.ibb.co/mrshf4VG/IMG-3687.jpg" alt="Jamie Dimon">
+                    <h4>Jamie Dimon — Head of Financial Engineering</h4>
+                    <p>Shaping robust financial models.</p>
+                </div>
             </div>
-            <div class="profile-card">
-                <img src="https://i.ibb.co/M53F7dGv/IMG-3685.jpg" alt="Liana Brooks">
-                <h4>Liana Brooks — Co-Founder & COO</h4>
-                <p>Ex-Google DeepMind operations leader overseeing strategy and deployment.</p>
-            </div>
-            <div class="profile-card">
-                <img src="https://i.ibb.co/mrshf4VG/IMG-3687.jpg" alt="Jamie Dimon">
-                <h4>Jamie Dimon — Head of Financial Engineering</h4>
-                <p>Chairman and Chief Executive Officer of JPMorgan Chase since 2006.</p>
-            </div>
-        </div>
+        </section>
 
-        <h2>Major Sponsors & Backers</h2>
-        <p><strong>Top Corporate Sponsors</strong></p>
-        <div class="sponsors-logos">
-            <div class="sponsor-logo">
-                <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/RWCZER-Legal-IP-Trademarks-CP-MS-logo-740x417-1?wid=406&hei=230&fit=crop&resSharp=1" alt="Microsoft Logo">
-                <p>Microsoft</p>
-            </div>
-            <div class="sponsor-logo">
-                <img src="https://www.logo.wine/a/logo/Tesla%2C_Inc./Tesla%2C_Inc.-Logomark%26Wordmark2-Dark-Background-Logo.wine.svg" alt="Tesla Logo">
-                <p>Tesla</p>
-            </div>
-            <div class="sponsor-logo">
-                <img src="https://pngimg.com/d/meta_PNG5.png" alt="Meta Logo">
-                <p>Meta (Facebook)</p>
-            </div>
-            <div class="sponsor-logo">
-                <img src="https://img.freepik.com/premium-photo/google-application-logo-3d-rendering-blue-background_41204-24578.jpg?semt=ais_hybrid&w=740&q=80" alt="Google Logo">
-                <p>Google</p>
-            </div>
-            <div class="sponsor-logo">
-                <img src="https://1000logos.net/wp-content/uploads/2016/10/Amazon-Logo.jpg" alt="Amazon Logo">
-                <p>Amazon</p>
-            </div>
-        </div>
+        <!-- SPONSORS -->
+        <section>
+            <h2>Strategic Partners</h2>
+            <p><strong>Corporate Collaborators</strong></p>
+            <div class="sponsors-logos">
+                <div class="sponsor-logo">
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/RWCZER-Legal-IP-Trademarks-CP-MS-logo-740x417-1?wid=406&hei=230&fit=crop&resSharp=1" alt="Microsoft Logo">
+                    <p>Microsoft</p>
+                </div>
+                <div class="sponsor-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tesla_Motors_Wordmark.svg/2560px-Tesla_Motors_Wordmark.svg.png" alt="Tesla Logo">
+                    <p>Tesla</p>
+                </div>
+                <div class="sponsor-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Meta_Platforms_Inc_logo_%28cropped%29.svg" alt="Meta Logo">
+                    <p>Meta</p>
+                </div>
 
-        <p><strong>Private & Community Sponsors</strong></p>
-        <ul>
-            <li>NovaSpark Ventures — $25M seed investment supporting algorithm research.</li>
-            <li>Horizon Global Foundation — Funding global economic stabilization initiatives.</li>
-            <li>Atlas Innovations Group — Provides cloud infrastructure, computing power, and hardware access.</li>
-            <li>Quantum Equity Partners — Private investment group focused on emerging AI technologies.</li>
-            <li>Global Finance Community Alliance — Network of institutional investors contributing data and validation.</li>
-        </ul>
-
-        <h2>Video Testimonials</h2>
-        <div class="videos">
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/_xzi_Gitd0I" title="AI in Finance 2023" frameborder="0" allowfullscreen></iframe>
-                <p>Artificial Intelligence in Financial Services 2023 - Testimonials</p>
+                <div class="sponsor-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+                    <p>Amazon</p>
+                </div>
             </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/RdCNrqC_sVY" title="AI in Finance Partner" frameborder="0" allowfullscreen></iframe>
-                <p>AI in Finance: A Partner, Not a Replacement</p>
+
+            <p><strong>Investment and Community Support</strong></p>
+            <ul>
+                <li>NovaSpark Ventures — Fueling algorithmic advancements.</li>
+                <li>Horizon Global Foundation — Advancing economic innovation.</li>
+                <li>Atlas Innovations Group — Providing computational infrastructure.</li>
+                <li>Quantum Equity Partners — Backing AI-driven finance.</li>
+                <li>Global Finance Community Alliance — Contributing market expertise.</li>
+            </ul>
+        </section>
+
+        <!-- VIDEO TESTIMONIALS -->
+        <section>
+            <h2>Insights from Industry Leaders</h2>
+            <div class="videos">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/_xzi_Gitd0I" title="AI in Finance 2023" frameborder="0" allowfullscreen></iframe>
+                    <p>AI's Role in Modern Financial Strategies</p>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/RdCNrqC_sVY" title="AI in Finance Partner" frameborder="0" allowfullscreen></iframe>
+                    <p>Collaborating with AI for Market Dominance</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <h2>Updates from the Team</h2>
-        <div class="update-card">
-            <h4>December 10, 2025: Beta Launch</h4>
-            <p>Project Horizon beta released to select partners for testing.</p>
-        </div>
-
-        <h2>Founder's Statement on Beta Launch</h2>
-        <p>
-            Dr. Adrian M. Kale, Founder & Chief Scientist, stated: "The beta launch of Project Horizon will be released only to top partners, sponsors, and private individuals. Due to concerns raised by government authorities, it must remain restricted to avoid jeopardizing the broader economy. This phased approach ensures stability while we refine the system."
-        </p>
-
-       
-        <h2>Reviews and Feedback</h2>
-        <div class="review-card">
-            <h4>Financial Times <span class="stars">★★★★★</span></h4>
-            <blockquote>"Project Horizon is a game-changer for financial stability." — Financial Times</blockquote>
-            <div class="review-date">Dec 12, 2025</div>
-        </div>
-
-        <h2>Live Interactions</h2>
-        <div class="live-interactions">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Question or Comment" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <p>Follow us for live updates: <a href="https://x.com/QuantralOfficial">@QuantralOfficial</a></p>
-        </div>
-
-        <h2>Group Pictures & Visual Presentations</h2>
-        <div class="visual-presentations">
-            <div class="presentation-card">
-                <img src="https://i.ibb.co/dXd5FPK/photo-output.jpg" alt="Horizon Beta Launch">
-                <p>Project Horizon Beta Launch Overview</p>
+        <!-- UPDATES -->
+        <section>
+            <h2>Recent Developments</h2>
+            <div class="update-card">
+                <h4>December 10, 2025: Beta Deployment</h4>
+                <p>Initial rollout to key partners, with expanded access planned.</p>
             </div>
-            <div class="presentation-card">
-                <img src="https://i.ibb.co/p6NLT1rC/IMG-3690.jpg" alt="Research Team">
-                <p>Sample Market Prediction Chart</p>
-            </div>
-            <div class="presentation-card">
-                <img src="https://i.ibb.co/mCXw0sMs/IMG-3695.jpg" alt="AI Risk Analytics">
-                <p>AI-Driven Risk Analytics Visualization</p>
-            </div>
-        </div>
+        </section>
 
-    </div>
+        <!-- FOUNDER'S STATEMENT -->
+        <section>
+            <h2>From the Leadership</h2>
+            <blockquote>
+                "Horizon represents the future of intelligent investing—precise, adaptive, and unstoppable." — Elon Musk, Co-Founder
+            </blockquote>
+        </section>
+
+        <!-- REVIEWS -->
+        <section>
+            <h2>Expert Opinions</h2>
+            <div class="review-card">
+                <h4>Financial Times <span class="stars">★★★★★</span></h4>
+                <blockquote>"A must-have for any serious market participant."</blockquote>
+                <div class="review-date">Dec 12, 2025</div>
+            </div>
+        </section>
+
+        <!-- LIVE INTERACTIONS -->
+        <section>
+            <h2>Engage with Us</h2>
+            <div class="live-interactions">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Insights or Queries" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <p>Join the discussion on X: <a href="https://x.com/QuantralOfficial">@QuantralOfficial</a></p>
+            </div>
+        </section>
+
+        <!-- VISUAL PRESENTATIONS -->
+        <section>
+            <h2>Key Visuals and Analytics</h2>
+            <div class="visual-presentations">
+                <div class="presentation-card">
+                    <img src="https://i.ibb.co/p6NLT1rC/IMG-3690.jpg" alt="Market Prediction Analytics">
+                    <p>Advanced Trend Forecasting</p>
+                </div>
+                <div class="presentation-card">
+                    <img src="https://i.ibb.co/mCXw0sMs/IMG-3695.jpg" alt="Risk Mapping Interface">
+                    <p>Real-Time Risk Visualization</p>
+                </div>
+                <div class="presentation-card">
+                    <img src="https://i.ibb.co/KzyPSt0C/IMG-3611.jpg" alt="Portfolio Optimization Dashboard">
+                    <p>Strategic Portfolio Tools</p>
+                </div>
+            </div>
+        </section>
+
+    </article>
 
     <!-- SIDEBAR -->
-    <div class="sidebar">
+    <aside class="sidebar">
         <div class="side-card">
-            <h3>Trending Today</h3>
-            <p>AI stocks reach new highs after Horizon beta release.</p>
+            <h3>Market Spotlight</h3>
+            <p>AI-driven tools surge amid global volatility concerns.</p>
         </div>
         <div class="side-card">
-            <h3>Market Tools</h3>
-            <p>Structured liquidity strategies and monthly horizon intelligence guides.</p>
+            <h3>Essential Features</h3>
+            <p>Real-time analytics, predictive modeling, and custom strategies.</p>
         </div>
         <div class="side-card">
-            <h3>Quick Links</h3>
-            <p><a href="#">Sign Up for Updates</a></p>
-            <p><a href="#">Contact the Team</a></p>
+            <h3>Quick Access</h3>
+            <p><a href="#">Request Beta Access</a></p>
+            <p><a href="#">Contact Team</a></p>
         </div>
-    </div>
+    </aside>
 
 </div>
 
@@ -538,3 +634,4 @@
 
 </body>
 </html>
+```0.
